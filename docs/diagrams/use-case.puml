@@ -1,0 +1,36 @@
+@startuml use-case
+left to right direction
+skinparam packageStyle rectangle
+actor "Пользователь" as User
+actor "Редактор" as Editor
+actor "Администратор" as Admin
+package "Система" {
+    usecase "Вход в систему" as UC_Login
+    
+    usecase "Добавить статью" as UC_AddArticle
+    usecase "Изменить статью" as UC_EditArticle
+    usecase "Посмотреть статус" as UC_CheckStatus
+    
+    usecase "Просмотреть статьи" as UC_ViewArticles
+    usecase "Вернуть на доработку" as UC_ReturnToAuthor
+    usecase "Изменить статус статьи" as UC_ChangeStatus
+    
+    usecase "Регистрация пользователей" as UC_Register
+    usecase "Просмотр пользователей" as UC_ViewUsers
+}
+
+User -- UC_Login
+User -- UC_AddArticle
+User -- UC_EditArticle
+User -- UC_CheckStatus
+
+Editor -- UC_Login
+Editor -- UC_ViewArticles
+Editor -- UC_ReturnToAuthor
+Editor -- UC_ChangeStatus
+
+Admin -- UC_Login
+Admin -- UC_Register
+Admin -- UC_ViewUsers
+
+@enduml
