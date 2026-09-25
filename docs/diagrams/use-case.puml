@@ -1,10 +1,10 @@
 @startuml use-case
 left to right direction
 skinparam packageStyle rectangle
-actor "Пользователь" as User
+actor "Автор" as User
 actor "Редактор" as Editor
 actor "Администратор" as Admin
-package "Система" {
+
     usecase "Вход в систему" as UC_Login
     
     usecase "Добавить статью" as UC_AddArticle
@@ -17,7 +17,7 @@ package "Система" {
     
     usecase "Регистрация пользователей" as UC_Register
     usecase "Просмотр пользователей" as UC_ViewUsers
-}
+
 
 User -- UC_Login
 User -- UC_AddArticle
@@ -29,7 +29,7 @@ Editor -- UC_ViewArticles
 Editor -- UC_ReturnToAuthor
 Editor -- UC_ChangeStatus
 
-Admin -- UC_Login
+Admin -up- UC_Login
 Admin -- UC_Register
 Admin -- UC_ViewUsers
 
